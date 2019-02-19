@@ -41,8 +41,8 @@
 
     <ListView
         android:id="@+id/my_list_view"
-        android:layout_width="393dp"
-        android:layout_height="483dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
@@ -56,7 +56,7 @@
 
     <Button
         android:id="@+id/push_btn"
-        android:layout_width="87dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/push"
         app:layout_constraintBaseline_toBaselineOf="@+id/pop_btn"
@@ -66,8 +66,8 @@
 
     <Button
         android:id="@+id/pop_btn"
-        android:layout_width="92dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:text="@string/pop"
         app:layout_constraintEnd_toStartOf="@+id/clear_btn"
