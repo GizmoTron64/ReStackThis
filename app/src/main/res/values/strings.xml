@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">StackThis</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_stack">StackActivity</string>
+    <string name="title_activity_queue">QueueActivity</string>
+    <string name="stack">Stack</string>
+    <string name="queue">Queue</string>
+    <string name="other">Other</string>
+    <string name="pop">Pop</string>
+    <string name="top">Top</string>
+    <string name="push">Push</string>
+    <string name="enqueue">Enqueue</string>
+    <string name="dequeue">Dequeue</string>
+    <string name="clear">Clear</string>
+    <string name="enter_num">Enter a number</string>
+
+</resources>
