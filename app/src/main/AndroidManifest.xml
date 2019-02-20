@@ -13,7 +13,7 @@
             android:name=".QueueActivity"
             android:label="@string/title_activity_queue"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".StackActivity"
             android:label="@string/title_activity_stack"

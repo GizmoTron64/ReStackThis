@@ -3,7 +3,7 @@ package com.example.stackthis;
 
 import java.util.ArrayList;
 
-public class Queue<E>  {
+public class Queue<E> {
     /**
      * A First-in, First-out Queue object
      */
@@ -59,5 +59,21 @@ public class Queue<E>  {
      */
     public E tail() {
         return queue.get(size() -1);
+    }
+
+    public ArrayList<E> getQueue() {
+        return queue;
+    }
+
+    public void setQueue(ArrayList<E> queue) {
+        this.queue = queue;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }

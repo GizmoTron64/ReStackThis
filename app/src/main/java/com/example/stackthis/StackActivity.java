@@ -46,7 +46,7 @@ public class StackActivity extends AppCompatActivity {
     }
 
     /**
-     * Adds a value to the end of the stack
+     * Adds an object to the end of the stack
      * @param view
      */
     public void pushVal(View view) {
@@ -58,7 +58,7 @@ public class StackActivity extends AppCompatActivity {
     }
 
     /**
-     * Removes the last value in the stack
+     * Removes the last object in the stack
      * @param view
      */
     public void popVal(View view) {
@@ -72,7 +72,7 @@ public class StackActivity extends AppCompatActivity {
     }
 
     /**
-     * Shows the value at the top of the stack in a textView
+     * Shows the object at the top of the stack in a textView
      * @param view
      */
     public void topVal(View view) {
