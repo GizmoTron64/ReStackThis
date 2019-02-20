@@ -12,6 +12,7 @@
     <string name="enqueue">Enqueue</string>
     <string name="dequeue">Dequeue</string>
     <string name="clear">Clear</string>
-    <string name="enter_num">Enter a number</string>
-
+    <string name="enterVal">Enter a Value</string>
+    <string name="head">Head</string>
+    <string name="tail">Tail</string>
 </resources>

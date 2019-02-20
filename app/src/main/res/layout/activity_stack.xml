@@ -20,97 +20,103 @@
         android:id="@+id/toolbar3"
         android:layout_width="411dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/design_default_color_primary_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="251dp"
-        android:layout_height="43dp"
+        android:id="@+id/enterVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/enter_num"
-        android:inputType="number"
+        android:hint="@string/enterVal"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/topText"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
 
     <ListView
-        android:id="@+id/my_list_view"
+        android:id="@+id/stackListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pop_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/popBtn" />
 
     <Button
-        android:id="@+id/push_btn"
+        android:id="@+id/pushBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/design_default_color_primary_dark"
+        android:onClick="pushVal"
         android:text="@string/push"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pop_btn"
-        app:layout_constraintEnd_toStartOf="@+id/pop_btn"
+        android:textColor="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/popBtn"
+        app:layout_constraintEnd_toStartOf="@+id/popBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/pop_btn"
+        android:id="@+id/popBtn"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:onClick="popVal"
         android:text="@string/pop"
-        app:layout_constraintEnd_toStartOf="@+id/clear_btn"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@+id/clearBtn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/push_btn"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintStart_toEndOf="@+id/pushBtn"
+        app:layout_constraintTop_toBottomOf="@+id/enterVal" />
 
     <Button
-        android:id="@+id/clear_btn"
+        android:id="@+id/clearBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/design_default_color_primary_dark"
+        android:onClick="clearStack"
         android:text="@string/clear"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pop_btn"
+        android:textColor="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/popBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/pop_btn" />
+        app:layout_constraintStart_toEndOf="@+id/popBtn" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/topText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="26dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/top"
         android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/enterVal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
+        app:layout_constraintEnd_toStartOf="@+id/topEditText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/enterVal" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="72dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:id="@+id/topEditText"
+        android:layout_width="139dp"
+        android:layout_height="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/enterVal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/topText" />
 
 </android.support.constraint.ConstraintLayout>
