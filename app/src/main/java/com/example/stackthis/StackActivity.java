@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Stack;
 
@@ -17,14 +18,14 @@ public class StackActivity extends AppCompatActivity {
     private ListView stackListView;
     private Stack stack;
     private EditText enterVal;
-    private TextView topEditText;
+    private TextView topTextView;
     private ArrayAdapter<String> listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stack);
-        Toolbar toolbar = findViewById(R.id.toolbar3);
+        Toolbar toolbar = findViewById(R.id.stackToolbar);
         setSupportActionBar(toolbar);
 
         stack = new Stack();
@@ -48,8 +49,8 @@ public class StackActivity extends AppCompatActivity {
      * Adds a value to the end of the stack
      * @param view
      */
-    public void pushVal(View view){
-        enterVal = (EditText) findViewById(R.id.enterVal);
+    public void pushVal(View view) {
+        enterVal = (EditText) findViewById(R.id.stackEnterVal);
         String message = enterVal.getText().toString();
         listAdapter.add(message);
         enterVal.getText().clear();
@@ -63,6 +64,8 @@ public class StackActivity extends AppCompatActivity {
     public void popVal(View view) {
         if(stack.size() > 0) {
             stack.pop();
+        } else {
+            Toast.makeText(this, "Stack is empty", Toast.LENGTH_SHORT).show();
         }
         listAdapter.notifyDataSetChanged();
         topVal(view);
@@ -73,15 +76,20 @@ public class StackActivity extends AppCompatActivity {
      * @param view
      */
     public void topVal(View view) {
-        topEditText = (TextView) findViewById(R.id.topEditText);
+        topTextView = (TextView) findViewById(R.id.topTextView);
         if(stack.size() > 0) {
-            topEditText.setText(stack.peek().toString());
+            topTextView.setText(stack.peek().toString());
         } else {
-            topEditText.setText("");
+            topTextView.setText("");
         }
         listAdapter.notifyDataSetChanged();
     }
 
+
+    /**
+     * Removes all objects from the stack
+     * @param view
+     */
     public void clearStack(View view) {
         stack.clear();
         listAdapter.notifyDataSetChanged();
