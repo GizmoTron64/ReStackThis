@@ -30,7 +30,7 @@ public class QueueActivity extends AppCompatActivity {
         headEditText = (TextView) findViewById(R.id.headEditText);
         tailEditText = (TextView) findViewById(R.id.tailEditText);
         queue = new Queue<String>();
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, queue.getQueue());
+        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, queue.getList());
         queueListView = (ListView) findViewById(R.id.queueListView);
         queueListView.setAdapter(listAdapter);
 
@@ -98,7 +98,7 @@ public class QueueActivity extends AppCompatActivity {
      */
     public void headVal(View view) {
         if(queue.size() > 0) {
-            headEditText.setText(queue.getQueue().get(0));
+            headEditText.setText(queue.getList().get(0));
         } else {
             headEditText.setText("");
         }

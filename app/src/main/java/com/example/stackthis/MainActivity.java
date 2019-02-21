@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /**
-    public void startOther(View view) {
-        Intent intent = new Intent(this, OtherActivity.class);
+
+    public void startSearch(View view) {
+        Intent intent = new Intent(this, ListSearchActivity.class);
         startActivity(intent);
-    } **/
+    }
 
 
     public void startStack(View view) {

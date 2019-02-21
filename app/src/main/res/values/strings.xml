@@ -4,8 +4,8 @@
     <string name="title_activity_stack">StackActivity</string>
     <string name="title_activity_queue">QueueActivity</string>
     <string name="stack">Stack</string>
-    <string name="queue">Queue</string>
-    <string name="other">Other</string>
+    <string name="list">Queue</string>
+    <string name="list_search">List Search</string>
     <string name="pop">Pop</string>
     <string name="top">Top</string>
     <string name="push">Push</string>
@@ -15,4 +15,9 @@
     <string name="enterVal">Enter a Value</string>
     <string name="head">Head</string>
     <string name="tail">Tail</string>
+    <string name="search">Search</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_list_search">ListSearchActivity</string>
+    <string name="result">Result</string>
+
 </resources>
