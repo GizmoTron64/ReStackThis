@@ -17,7 +17,6 @@ public class QueueActivity extends AppCompatActivity {
     private ListView queueListView;
     private EditText enterVal;
     private TextView tailEditText;
-    private TextView headEditText;
     private ArrayAdapter<String> listAdapter;
 
     @Override
@@ -27,18 +26,19 @@ public class QueueActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.queueToolbar);
         setSupportActionBar(toolbar);
 
-        headEditText = (TextView) findViewById(R.id.headEditText);
         tailEditText = (TextView) findViewById(R.id.tailEditText);
         queue = new Queue<String>();
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, queue.getList());
+        listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, queue);
         queueListView = (ListView) findViewById(R.id.queueListView);
         queueListView.setAdapter(listAdapter);
+        updateTail();
 
         queueListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 listAdapter.remove(listAdapter.getItem(position));
-                updateHeadTail(view);
+                updateTail();
+                listAdapter.notifyDataSetChanged();
             }
         });
     }
@@ -50,9 +50,16 @@ public class QueueActivity extends AppCompatActivity {
     public void enqueue(View view) {
         enterVal = (EditText) findViewById(R.id.queueEnterVal);
         String message = enterVal.getText().toString();
-        listAdapter.add(message);
-        enterVal.getText().clear();
-        updateHeadTail(view);
+
+        if(!message.isEmpty()) {
+            listAdapter.add(message);
+            enterVal.getText().clear();
+            updateTail();
+            listAdapter.notifyDataSetChanged();
+        } else {
+            Toast.makeText(this, "Enter a value", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     /**
@@ -60,13 +67,12 @@ public class QueueActivity extends AppCompatActivity {
      * @param view
      */
     public void dequeue(View view) {
-        if(queue.size() > 0) {
-            queue.remove();
+        if(!queue.isEmpty()) {
+            queue.dequeue();
         } else {
             Toast.makeText(this, "Stack is empty", Toast.LENGTH_SHORT).show();
         }
-        listAdapter.notifyDataSetChanged();
-        updateHeadTail(view);
+        updateTail();
     }
 
     /**
@@ -74,44 +80,21 @@ public class QueueActivity extends AppCompatActivity {
      * @param view
      */
     public void clearQueue(View view) {
-        queue.clearQueue();
-        listAdapter.notifyDataSetChanged();
-        updateHeadTail(view);
+        if(!queue.isEmpty()) {
+            queue.clear();
+        } else {
+            Toast.makeText(this, "Stack is empty", Toast.LENGTH_SHORT).show();
+        }
+        updateTail();
     }
 
     /**
      * Shows the object at the end of the queue in a textView
-     * @param view
      */
-    public void tailVal(View view) {
-        if(queue.size() > 0) {
-            tailEditText.setText(queue.tail());
-        } else {
-            tailEditText.setText("");
-        }
-        listAdapter.notifyDataSetChanged();
+    public void updateTail() {
+        tailEditText.setText(queue.tail());
+
     }
 
-    /**
-     * Shows the object at the front of the queue in a textView
-     * @param view
-     */
-    public void headVal(View view) {
-        if(queue.size() > 0) {
-            headEditText.setText(queue.getList().get(0));
-        } else {
-            headEditText.setText("");
-        }
-        listAdapter.notifyDataSetChanged();
-    }
-
-    /**
-     * Updates the head and tail textViews
-     * @param view
-     */
-    public void updateHeadTail(View view) {
-        headVal(view);
-        tailVal(view);
-    }
 
 }

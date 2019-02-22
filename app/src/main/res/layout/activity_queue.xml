@@ -7,30 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".QueueActivity">
 
-    <TextView
-        android:id="@+id/headEditText"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/headTextView"
-        app:layout_constraintEnd_toStartOf="@+id/tailTextView"
-        app:layout_constraintStart_toEndOf="@+id/headTextView" />
-
-    <TextView
-        android:id="@+id/headTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/head"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dequeueBtn" />
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout3"
         android:layout_width="0dp"
@@ -55,12 +31,12 @@
         style="@style/Widget.AppCompat.ListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tailEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/dequeueBtn" />
 
     <EditText
         android:id="@+id/queueEnterVal"
@@ -69,12 +45,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/enterVal"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout3" />
 
@@ -122,10 +95,12 @@
         android:id="@+id/tailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:text="@string/tail"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/headEditText"
-        app:layout_constraintEnd_toEndOf="@+id/dequeueBtn" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/queueEnterVal"
+        app:layout_constraintStart_toEndOf="@+id/queueEnterVal" />
 
     <TextView
         android:id="@+id/tailEditText"

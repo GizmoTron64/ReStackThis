@@ -3,44 +3,27 @@ package com.example.stackthis;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ListSearch<E> extends List<E> {
+public class ListSearch<String> extends ArrayList<String>{
 
     private Random rand;
+    private int capacity;
+    private Integer num;
 
     public ListSearch() {
         super();
         rand = new Random();
+        capacity = 9;
     }
-
-
-//    public int search(listData, value) {
-//        index = 0;
-//        while (index < len(listData) and listData[index] < value) {
-//            index++;
-//        }
-//
-//        if (index >= len(listData) or listData[index] != value) {
-//            return -1;
-//        }
-//
-//        return index;
-//    }
-//
 
     /**
      * This needs to fill in an ascending order
      * make a variable and add a small random number each time
      */
     public void fillList() {
-        Integer num = rand.nextInt(11);
-        for (int i = 0; i < size(); i++) {
+        for (int i = 0; i < capacity; i++) {
             num += rand.nextInt(11);
-            add((E) num);
+            add((String) num);
         }
-    }
-
-    public void remove() {
-
     }
 
 

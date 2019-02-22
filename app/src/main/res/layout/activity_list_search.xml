@@ -41,7 +41,18 @@
         tools:layout_conversion_absoluteWidth="411dp"
         tools:layout_editor_absoluteY="56dp" />
 
+    <TextView
+        android:id="@+id/searchingEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/searchingTextView"
+        app:layout_constraintStart_toStartOf="@+id/searchingTextView"
+        app:layout_constraintTop_toBottomOf="@+id/searchingTextView" />
+
     <ListView
+        android:id="@+id/searchListView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -58,12 +69,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:hint="@string/enterVal"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/searchBtn"
@@ -71,13 +82,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:onClick="search"
         android:text="@string/search"
+        android:textColor="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/searchEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/searchEditText"
-        app:layout_constraintTop_toTopOf="@+id/include2" />
+        app:layout_constraintStart_toEndOf="@+id/searchEditText" />
 
     <TextView
         android:id="@+id/resultTextView"
@@ -85,23 +98,49 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/result"
         android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/autofillBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchEditText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/resultEditText"
-        android:layout_width="61dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/resultTextView"
         app:layout_constraintStart_toStartOf="@+id/resultTextView"
         app:layout_constraintTop_toBottomOf="@+id/resultTextView" />
+
+    <Button
+        android:id="@+id/autofillBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:onClick="autofill"
+        android:text="@string/autofill"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/searchBtn"
+        app:layout_constraintStart_toStartOf="@+id/searchBtn"
+        app:layout_constraintTop_toBottomOf="@+id/searchBtn" />
+
+    <TextView
+        android:id="@+id/searchingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/searching"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/resultTextView"
+        app:layout_constraintEnd_toStartOf="@+id/resultTextView"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

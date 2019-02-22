@@ -52,7 +52,12 @@ public class StackActivity extends AppCompatActivity {
     public void pushVal(View view) {
         enterVal = (EditText) findViewById(R.id.stackEnterVal);
         String message = enterVal.getText().toString();
-        listAdapter.add(message);
+
+        if(!message.isEmpty()) {
+            listAdapter.add(message);
+        } else {
+            Toast.makeText(this, "Enter a value", Toast.LENGTH_SHORT).show();
+        }
         enterVal.getText().clear();
         topVal(view);
     }
