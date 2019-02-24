@@ -53,9 +53,10 @@ public class ListSearchActivity extends AppCompatActivity {
     public void search(View view) {
         String message = searchEditText.getText().toString();
         searchingEditText.setText(message);
+        int searchInt = listSearch.indexOf(Integer.parseInt(message));
 
-        if(listSearch.indexOf(message) >= 0) {
-            String index = Integer.toString(listSearch.indexOf(message));
+        if(searchInt >= 0) {
+            String index = Integer.toString(searchInt);
             resultEditText.setText(index);
         } else {
             Toast.makeText(this, "What you were searching for does not belong here", Toast.LENGTH_SHORT).show();

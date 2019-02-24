@@ -69,6 +69,7 @@ public class QueueActivity extends AppCompatActivity {
     public void dequeue(View view) {
         if(!queue.isEmpty()) {
             queue.dequeue();
+            listAdapter.notifyDataSetChanged();
         } else {
             Toast.makeText(this, "Stack is empty", Toast.LENGTH_SHORT).show();
         }
@@ -82,6 +83,7 @@ public class QueueActivity extends AppCompatActivity {
     public void clearQueue(View view) {
         if(!queue.isEmpty()) {
             queue.clear();
+            listAdapter.notifyDataSetChanged();
         } else {
             Toast.makeText(this, "Stack is empty", Toast.LENGTH_SHORT).show();
         }

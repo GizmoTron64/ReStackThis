@@ -3,16 +3,16 @@ package com.example.stackthis;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ListSearch<String> extends ArrayList<String>{
+public class ListSearch extends ArrayList {
 
     private Random rand;
-    private int capacity;
-    private Integer num;
+    private int size;
+    private int num;
 
     public ListSearch() {
         super();
         rand = new Random();
-        capacity = 9;
+        size = 9;
     }
 
     /**
@@ -20,9 +20,9 @@ public class ListSearch<String> extends ArrayList<String>{
      * make a variable and add a small random number each time
      */
     public void fillList() {
-        for (int i = 0; i < capacity; i++) {
+        for (int i = 0; i < size; i++) {
             num += rand.nextInt(11);
-            add((String) num);
+            add(num);
         }
     }
 
