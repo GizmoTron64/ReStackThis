@@ -14,13 +14,19 @@ import android.widget.Toast;
 import java.util.Stack;
 
 public class StackActivity extends AppCompatActivity {
-
+    /**
+     * Activity for a first-in last-out Stack list
+     */
     private ListView stackListView;
     private Stack stack;
     private EditText enterVal;
     private TextView topTextView;
     private ArrayAdapter<String> listAdapter;
 
+    /**
+     * Initialises empty Stack
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +36,7 @@ public class StackActivity extends AppCompatActivity {
 
         stack = new Stack();
         listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stack);
-        stackListView = (ListView) findViewById(R.id.stackListView);
+        stackListView = findViewById(R.id.stackListView);
         stackListView.setAdapter(listAdapter);
 
         //Set an event listener: what happens when an item on the listview is clicked.
@@ -41,8 +47,6 @@ public class StackActivity extends AppCompatActivity {
                 topVal(view);
             }
         });
-
-
     }
 
     /**
@@ -50,11 +54,11 @@ public class StackActivity extends AppCompatActivity {
      * @param view
      */
     public void pushVal(View view) {
-        enterVal = (EditText) findViewById(R.id.stackEnterVal);
-        String message = enterVal.getText().toString();
+        enterVal = findViewById(R.id.stackEnterVal);
+        String input = enterVal.getText().toString();
 
-        if(!message.isEmpty()) {
-            listAdapter.add(message);
+        if(!input.isEmpty()) {
+            listAdapter.add(input);
         } else {
             Toast.makeText(this, "Enter a value", Toast.LENGTH_SHORT).show();
         }
@@ -81,7 +85,7 @@ public class StackActivity extends AppCompatActivity {
      * @param view
      */
     public void topVal(View view) {
-        topTextView = (TextView) findViewById(R.id.topTextView);
+        topTextView = findViewById(R.id.topTextView);
         if(stack.size() > 0) {
             topTextView.setText(stack.peek().toString());
         } else {
@@ -89,8 +93,7 @@ public class StackActivity extends AppCompatActivity {
         }
         listAdapter.notifyDataSetChanged();
     }
-
-
+    
     /**
      * Removes all objects from the stack
      * @param view
@@ -100,7 +103,4 @@ public class StackActivity extends AppCompatActivity {
         listAdapter.notifyDataSetChanged();
         topVal(view);
     }
-
-
-
 }

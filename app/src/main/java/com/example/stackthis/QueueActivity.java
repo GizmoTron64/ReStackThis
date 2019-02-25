@@ -12,13 +12,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class QueueActivity extends AppCompatActivity {
-
+    /**
+     * Activity for a first-in first-out queue
+     */
     private Queue<String> queue;
     private ListView queueListView;
     private EditText enterVal;
     private TextView tailEditText;
     private ArrayAdapter<String> listAdapter;
 
+    /**
+     * Initialises empty Queue
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +32,10 @@ public class QueueActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.queueToolbar);
         setSupportActionBar(toolbar);
 
-        tailEditText = (TextView) findViewById(R.id.tailEditText);
+        tailEditText = findViewById(R.id.tailEditText);
         queue = new Queue<String>();
         listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, queue);
-        queueListView = (ListView) findViewById(R.id.queueListView);
+        queueListView = findViewById(R.id.queueListView);
         queueListView.setAdapter(listAdapter);
         updateTail();
 
@@ -48,11 +54,11 @@ public class QueueActivity extends AppCompatActivity {
      * @param view
      */
     public void enqueue(View view) {
-        enterVal = (EditText) findViewById(R.id.queueEnterVal);
-        String message = enterVal.getText().toString();
+        enterVal = findViewById(R.id.queueEnterVal);
+        String input = enterVal.getText().toString();
 
-        if(!message.isEmpty()) {
-            listAdapter.add(message);
+        if(!input.isEmpty()) {
+            listAdapter.add(input);
             enterVal.getText().clear();
             updateTail();
             listAdapter.notifyDataSetChanged();
@@ -71,7 +77,7 @@ public class QueueActivity extends AppCompatActivity {
             queue.dequeue();
             listAdapter.notifyDataSetChanged();
         } else {
-            Toast.makeText(this, "Stack is empty", Toast.LENGTH_SHORT).show();
+            toastEmptyStack();
         }
         updateTail();
     }
@@ -85,7 +91,7 @@ public class QueueActivity extends AppCompatActivity {
             queue.clear();
             listAdapter.notifyDataSetChanged();
         } else {
-            Toast.makeText(this, "Stack is empty", Toast.LENGTH_SHORT).show();
+            toastEmptyStack();
         }
         updateTail();
     }
@@ -98,5 +104,11 @@ public class QueueActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Shows toast message when user attempts to dequeue from an empty stack
+     */
+    public void toastEmptyStack() {
+        Toast.makeText(this, "Stack is empty", Toast.LENGTH_SHORT).show();
+    }
 
 }

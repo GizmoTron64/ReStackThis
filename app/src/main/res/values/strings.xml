@@ -16,10 +16,12 @@
     <string name="head">Head</string>
     <string name="tail">Tail</string>
     <string name="search">Search</string>
+    <string name="slow_search">Slow Search</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_list_search">ListSearchActivity</string>
     <string name="result">Result</string>
     <string name="autofill">Autofill</string>
     <string name="searching">Searching</string>
+    <string name="index">Index</string>
 
 </resources>
